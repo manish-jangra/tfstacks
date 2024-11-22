@@ -22,10 +22,4 @@ orchestrate "auto_approve" "safe_plans" {
         condition = context.plan.changes.remove == 0
         reason    = "Plan is destroying ${context.plan.changes.remove} resources."
     }
-
-    # Ensure that the deployment is not your production environment. 
-    check {
-        condition = context.plan.deployment != deployment.production
-        reason    = "Production plans are not eligible for auto_approve."
-    }
 }
