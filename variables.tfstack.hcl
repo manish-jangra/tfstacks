@@ -29,11 +29,13 @@ variable "cluster_name" {
 variable "access_key" {
     description = "AWS ACCESS KEY"
     type    = string
-    sensitive   = false
+    sensitive   = true
+    ephemeral = true
 }
 
 variable "secret_key" {
     description = "AWS SECRET ACCESS KEY"
     type    = string
-    sensitive   = false
+    sensitive   = true
+    ephemeral = true
 }
