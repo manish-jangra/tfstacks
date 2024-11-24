@@ -12,7 +12,21 @@
 #     audience = ["aws.workload.identity"]
 # }
 
+store "varset" "access_key" {
+  id       = "access_key"
+  category = "env"
+}
+
+store "varset" "secret_key" {
+  id       = "secret_key"
+  category = "env"
+}
+
 deployment "tfstacks-pilot" {
+    inputs = {
+      access_key = store.varset.access_key.access_key
+      secret_key = store.varset.secret_key.secret_key
+    }
 }
 
 # deployments.tfdeploy.hcl
