@@ -25,3 +25,15 @@ variable "cluster_name" {
     default = "stone-prod-p02"
     sensitive   = false
 }
+
+variable "access_key" {
+    description = "AWS ACCESS KEY"
+    type    = string
+    sensitive   = false
+}
+
+variable "secret_key" {
+    description = "AWS SECRET ACCESS KEY"
+    type    = string
+    sensitive   = false
+}
