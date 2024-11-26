@@ -11,7 +11,8 @@ component "ClusterNetworkConfiguration" {
     }
 }
 component "ClusterInstallation" {
-  source = "terraform-redhat/rosa-classic/rhcs"
+  source  = "terraform-redhat/rosa-classic/rhcs"
+  version = "1.6.5"
   inputs = {
     cluster_name                = "tfstacks"
     openshift_version           = "4.14.24"
