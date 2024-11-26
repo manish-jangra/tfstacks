@@ -39,6 +39,7 @@ component "ClusterInstallation" {
     null    = provider.null.null_config
     random  = provider.random.random_config
     time    = provider.time.time_config
+    aws     = provider.aws.this
   }
 }
 
