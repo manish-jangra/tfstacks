@@ -46,3 +46,9 @@ variable "rhcs_token" {
     sensitive   = true
     ephemeral = true
 }
+
+variable "az" {
+    description = "OCM API Token"
+    type    = list(string)
+    default = [ "us-east-1a", "us-east-1b", "us-east-1c" ]
+}
