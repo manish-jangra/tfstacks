@@ -35,7 +35,8 @@ component "ClusterInstallation" {
     wait_for_create_complete    = true
   }
   providers = {
-    rhcs = provider.rhcs.rhcs_config
+    aws   = provider.aws.this
+    rhcs  = provider.rhcs.rhcs_config
   }
 }
 
