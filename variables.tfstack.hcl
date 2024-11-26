@@ -39,3 +39,10 @@ variable "secret_key" {
     sensitive   = true
     ephemeral = true
 }
+
+variable "rhcs_token" {
+    description = "OCM API Token"
+    type    = string
+    sensitive   = true
+    ephemeral = true
+}

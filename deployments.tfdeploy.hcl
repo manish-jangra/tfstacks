@@ -17,10 +17,11 @@ store "varset" "aws_keys" {
   category = "env"
 }
 
-deployment "tfstacks-pilot" {
+deployment "kflux_prd_rh02" {
     inputs = {
       access_key = store.varset.aws_keys.access_key
       secret_key = store.varset.aws_keys.secret_key
+      rhcs_token = store.varset.aws_keys.ocm_token
     }
 }
 

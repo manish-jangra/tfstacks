@@ -1,4 +1,4 @@
-component "cluster_network" {
+component "ClusterNetworkConfiguration" {
     source = "git::https://github.com/redhat-appstudio/infrastructure.git//terraform/modules/network"
     inputs = {
       vpc_cidr                  = var.vpc_cidr
@@ -7,22 +7,49 @@ component "cluster_network" {
       public_subnets            = var.public_subnets
     }
     providers = {
-        aws       = provider.aws.this
+      aws       = provider.aws.this
     }
 }
+component "ClusterInstallation" {
+  source = "terraform-redhat/rosa-classic/rhcs"
+  inputs = {
+    cluster_name                = "tfstacks"
+    openshift_version           = "4.14.24"
+    create_account_roles        = true
+    create_operator_roles       = true
+    create_oidc                 = true
+    create_admin_user           = true
+    account_role_prefix         = "tfstacks"
+    autoscaling_enabled         = true
+    aws_subnet_ids              = component.ClusterNetworkConfiguration.private-subnets.ids
+    cluster_autoscaler_enabled  = true
+    compute_machine_type        = "m6a.2xlarge"
+    machine_cidr                = var.vpc_cidr
+    managed_oidc                = true
+    min_replicas                = 3
+    max_relicas                 = 15
+    multi_az                    = true
+    operator_role_prefix        = "tfstacks"
+    pod_cidr                    = "192.168.0.0/16"
+    wait_for_create_complete    = true
+  }
+  providers = {
+    rhcs = provider.rhcs.rhcs_config
+  }
+}
 
-# component "database_network" {
+# component "ClusterPostConfiguration" {
 #   source = "git::https://github.com/redhat-appstudio/infrastructure.git//terraform/modules/network"
 # }
 
-# component "aws_network_for_mpc" {
+# component "DatabaseNetworkConfiguration" {
 #   source = "git::https://github.com/redhat-appstudio/infrastructure.git//terraform/modules/network"
 # }
 
-# # component "ibm_network_for_mpc" {
-  
-# # }
+# component "MultiPlatformAWSNetworkConfiguration" {
+#   source = "git::https://github.com/redhat-appstudio/infrastructure.git//terraform/modules/network"
+# }
 
-# component "rosa_cluster" {
+# component "MultiPlatformIBMNetworkConfiguration" {
 #   source = "git::https://github.com/redhat-appstudio/infrastructure.git//terraform/modules/network"
 # }

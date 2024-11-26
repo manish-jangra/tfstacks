@@ -23,3 +23,18 @@ provider "registry.terraform.io/hashicorp/aws" {
     "zh:f3de076fa3402768d27af0187c6a677777b47691d1f0f84c9b259ff66e65953e",
   ]
 }
+
+provider "registry.terraform.io/terraform-redhat/rhcs" {
+  version = "1.6.5"
+  hashes = [
+    "h1:FG7uiImsFlCVu2RNjHUGvEaD3mjPs/Kzmao/vIk/7S0=",
+    "h1:pT8+aqy8IZV5nntB2uMPGX+sWWYGa8v9SB68NGQj8lg=",
+    "zh:0773becdd50ab84908b4707d25b5f56da74c879946430a914f1d54e7fd5e4b8f",
+    "zh:08f4fbd618698a960d6839bb3b304c164db0a60a71be75dd0ae5bda7727397d0",
+    "zh:09b0f0001886b99bdc2d248a2ae64294fb162ae71728642e6aed477b409a107e",
+    "zh:908b255d0ed86e56c2ac244768509f3297742f0e79974ebbb0c607d23f84709b",
+    "zh:9429851c4bb4f144482b495c7ba872b20078c9b92711e149d19bb065856ebf78",
+    "zh:a614aec30a6984a1e4a6521103e5fdaea8ca032e9b483202fa8caa6e199578cf",
+    "zh:f26e0763dbe6a6b2195c94b44696f2110f7f55433dc142839be16b9697fa5597",
+  ]
+}
