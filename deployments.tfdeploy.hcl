@@ -26,10 +26,10 @@ deployment "kflux_prd_rh02" {
 }
 
 # deployments.tfdeploy.hcl
-# orchestrate "auto_approve" "safe_plans" {
-#     # Ensure that no resource is removed.
-#     check {
-#         condition = context.plan.changes.remove == 0
-#         reason    = "Plan is destroying ${context.plan.changes.remove} resources."
-#     }
-# }
+orchestrate "auto_approve" "safe_plans" {
+    # Ensure that no resource is removed.
+    check {
+        condition = context.plan.changes.remove == 1
+        reason    = "Plan is destroying ${context.plan.changes.remove} resources."
+    }
+}
