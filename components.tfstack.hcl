@@ -19,20 +19,21 @@ component "ClusterInstallation" {
     create_account_roles        = true
     create_operator_roles       = true
     create_oidc                 = true
-    create_admin_user           = true
-    account_role_prefix         = "tfstacks"
-    autoscaling_enabled         = true
+    # create_admin_user           = true
+    # account_role_prefix         = "tfstacks"
+    # autoscaling_enabled         = true
     aws_subnet_ids              = concat(component.ClusterNetworkConfiguration.private-subnets.ids, component.ClusterNetworkConfiguration.public-subnets.ids)
-    cluster_autoscaler_enabled  = true
+    # cluster_autoscaler_enabled  = true
     compute_machine_type        = "m6a.2xlarge"
     machine_cidr                = var.vpc_cidr
-    managed_oidc                = false
-    min_replicas                = 3
-    max_relicas                 = 15
+    # managed_oidc                = false
+    # min_replicas                = 3
+    # max_relicas                 = 15
     multi_az                    = true
     aws_availability_zones      = var.az
-    operator_role_prefix        = "tfstacks"
-    pod_cidr                    = "192.168.0.0/16"
+    replicas                    = 3
+    # operator_role_prefix        = "tfstacks"
+    # pod_cidr                    = "192.168.0.0/16"
     wait_for_create_complete    = true
     
   }
